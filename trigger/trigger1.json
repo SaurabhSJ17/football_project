@@ -1,0 +1,24 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_copy_bronze_layer",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/football-storage/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/a551d430-0caf-4a86-a7c4-e12cc887b2d8/resourceGroups/sj-rg/providers/Microsoft.Storage/storageAccounts/sj5845",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

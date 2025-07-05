@@ -1,0 +1,102 @@
+{
+	"name": "pl_copy_bronze_layer",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "Binary1",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.Input_Filename",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Binary2",
+						"type": "DatasetReference",
+						"parameters": {
+							"directory_name": {
+								"value": "@concat(formatDateTime(utcNow(),'yyyy-MM-dd'),'/',split(pipeline().parameters.Input_Filename,'.')[0])",
+								"type": "Expression"
+							},
+							"file_name": {
+								"value": "@pipeline().parameters.Input_Filename",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "TestDate",
+					"value": "@formatDateTime(utcNow(),'yyyy-MM-dd')"
+				}
+			}
+		],
+		"parameters": {
+			"Input_Filename": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"TestDate": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "bronze_layer"
+		},
+		"annotations": []
+	}
+}
