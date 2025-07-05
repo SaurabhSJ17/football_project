@@ -1,0 +1,9 @@
+{
+	"name": "sjdf-23",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2522bb7f-9278-473f-a9e4-8bbc0b70c311",
+		"tenantId": "80aca00d-a563-4e49-a834-cbdbf0df2967"
+	}
+}
