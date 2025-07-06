@@ -3,11 +3,14 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copy_data_activity",
+				"description": "copy data from raw layer to bronze layer ",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
-						"activity": "Set variable1",
+						"activity": "set_today_date",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -42,7 +45,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary1",
+						"referenceName": "sink",
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
@@ -58,7 +61,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"directory_name": {
-								"value": "@concat(formatDateTime(utcNow(),'yyyy-MM-dd'),'/',split(pipeline().parameters.Input_Filename,'.')[0])",
+								"value": "@concat(formatDateTime(utcNow(),'yyyy-MM-dd'),'/',split(pipeline().parameters.Input_Filename,'.')[0])\n",
 								"type": "Expression"
 							},
 							"file_name": {
@@ -70,7 +73,8 @@
 				]
 			},
 			{
-				"name": "Set variable1",
+				"name": "set_today_date",
+				"description": "todaya's set in variable",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -80,7 +84,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "TestDate",
-					"value": "@formatDateTime(utcNow(),'yyyy-MM-dd')"
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-dd')",
+						"type": "Expression"
+					}
 				}
 			}
 		],
