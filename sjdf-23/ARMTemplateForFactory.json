@@ -103,7 +103,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "sink",
+								"referenceName": "source_loc",
 								"type": "DatasetReference",
 								"parameters": {
 									"FileName": {
@@ -115,7 +115,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "Binary2",
+								"referenceName": "sink_loc",
 								"type": "DatasetReference",
 								"parameters": {
 									"directory_name": {
@@ -168,12 +168,12 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/sink')]",
-				"[concat(variables('factoryId'), '/datasets/Binary2')]"
+				"[concat(variables('factoryId'), '/datasets/source_loc')]",
+				"[concat(variables('factoryId'), '/datasets/sink_loc')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/sink')]",
+			"name": "[concat(parameters('factoryName'), '/source_loc')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -185,6 +185,9 @@
 					"FileName": {
 						"type": "String"
 					}
+				},
+				"folder": {
+					"name": "bronze_layer"
 				},
 				"annotations": [],
 				"type": "Binary",
@@ -204,7 +207,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Binary2')]",
+			"name": "[concat(parameters('factoryName'), '/sink_loc')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -219,6 +222,9 @@
 					"file_name": {
 						"type": "String"
 					}
+				},
+				"folder": {
+					"name": "bronze_layer"
 				},
 				"annotations": [],
 				"type": "Binary",
