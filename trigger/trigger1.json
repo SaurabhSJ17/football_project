@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "pl_copy_bronze_layer",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Input_Filename": "@triggerBody().fileName"
 				}
 			}
 		],

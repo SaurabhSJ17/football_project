@@ -6,8 +6,6 @@
 				"name": "copy_data_activity",
 				"description": "copy data from raw layer to bronze layer ",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "set_today_date",
