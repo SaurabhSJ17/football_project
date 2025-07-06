@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "sink",
+						"referenceName": "source_loc",
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
@@ -55,7 +55,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Binary2",
+						"referenceName": "sink_loc",
 						"type": "DatasetReference",
 						"parameters": {
 							"directory_name": {

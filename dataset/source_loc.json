@@ -1,5 +1,5 @@
 {
-	"name": "sink",
+	"name": "source_loc",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -9,6 +9,9 @@
 			"FileName": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "bronze_layer"
 		},
 		"annotations": [],
 		"type": "Binary",
