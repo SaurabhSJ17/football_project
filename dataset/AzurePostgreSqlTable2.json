@@ -1,0 +1,24 @@
+{
+	"name": "AzurePostgreSqlTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "football_table",
+			"table": {
+				"value": "@dataset().filename",
+				"type": "Expression"
+			}
+		}
+	}
+}
