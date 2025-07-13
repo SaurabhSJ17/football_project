@@ -22,7 +22,7 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"fileSystem": "football-storage"
+				"fileSystem": "raw-layer"
 			}
 		}
 	}

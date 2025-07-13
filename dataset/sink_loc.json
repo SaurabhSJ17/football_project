@@ -29,7 +29,7 @@
 					"value": "@dataset().directory_name",
 					"type": "Expression"
 				},
-				"fileSystem": "bronzelayer"
+				"fileSystem": "bronze-layer"
 			}
 		}
 	}
