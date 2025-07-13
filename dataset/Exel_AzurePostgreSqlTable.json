@@ -1,0 +1,27 @@
+{
+	"name": "Exel_AzurePostgreSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sinkFileName": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "excel_dataflow"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "football_table",
+			"table": {
+				"value": "@dataset().sinkFileName",
+				"type": "Expression"
+			}
+		}
+	}
+}
