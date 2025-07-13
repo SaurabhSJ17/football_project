@@ -1,0 +1,9 @@
+{
+	"name": "sj-football-adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9dcceea6-d107-4103-b8d2-17e3d8b32dfc",
+		"tenantId": "a64338c1-895e-4052-a325-4f07792af1d5"
+	}
+}
