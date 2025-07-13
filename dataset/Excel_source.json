@@ -24,6 +24,7 @@
 				},
 				"fileSystem": "raw-layer"
 			},
+			"sheetIndex": 0,
 			"firstRowAsHeader": true
 		},
 		"schema": []
