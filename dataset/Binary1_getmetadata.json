@@ -1,9 +1,12 @@
 {
-	"name": "Binary1",
+	"name": "Binary1_getmetadata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "copy_to_postgreSql"
 		},
 		"annotations": [],
 		"type": "Binary",

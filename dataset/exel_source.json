@@ -1,5 +1,5 @@
 {
-	"name": "Excel1",
+	"name": "exel_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -9,6 +9,9 @@
 			"fileName": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "copy_to_postgreSql"
 		},
 		"annotations": [],
 		"type": "Excel",

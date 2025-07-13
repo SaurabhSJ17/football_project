@@ -10,6 +10,9 @@
 				"type": "String"
 			}
 		},
+		"folder": {
+			"name": "copy_to_postgreSql"
+		},
 		"annotations": [],
 		"type": "AzurePostgreSqlTable",
 		"schema": [],

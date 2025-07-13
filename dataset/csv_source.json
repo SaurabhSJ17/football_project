@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "csv_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -9,6 +9,9 @@
 			"fileNaame": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "copy_to_postgreSql"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
