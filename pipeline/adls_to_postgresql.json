@@ -3,11 +3,11 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "ForEach_raw_data",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata3",
+						"activity": "subchild_list_raw_data",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata3').output.childItems",
+						"value": "@activity('subchild_list_raw_data').output.childItems",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -35,6 +35,8 @@
 									{
 										"name": "Copy data2",
 										"type": "Copy",
+										"state": "Inactive",
+										"onInactiveMarkAs": "Succeeded",
 										"dependsOn": [],
 										"policy": {
 											"timeout": "0.12:00:00",
@@ -93,12 +95,46 @@
 												}
 											}
 										]
+									},
+									{
+										"name": "dataflow_exel",
+										"type": "ExecuteDataFlow",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataflow": {
+												"referenceName": "dataflow_exel",
+												"type": "DataFlowReference",
+												"datasetParameters": {
+													"source1": {
+														"sourceFileName": "@item().name"
+													},
+													"sink1": {
+														"sinkFileName": "@replace(item().name,'.xlsx' ,'' )"
+													}
+												}
+											},
+											"compute": {
+												"coreCount": 8,
+												"computeType": "General"
+											},
+											"traceLevel": "Fine"
+										}
 									}
 								],
 								"ifTrueActivities": [
 									{
 										"name": "Copy data1",
 										"type": "Copy",
+										"state": "Inactive",
+										"onInactiveMarkAs": "Succeeded",
 										"dependsOn": [],
 										"policy": {
 											"timeout": "0.12:00:00",
@@ -160,6 +196,38 @@
 												}
 											}
 										]
+									},
+									{
+										"name": "Data flow csv",
+										"type": "ExecuteDataFlow",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataflow": {
+												"referenceName": "dataflow_csv",
+												"type": "DataFlowReference",
+												"datasetParameters": {
+													"source1": {
+														"sourceFileName": "@item().name"
+													},
+													"sink1": {
+														"sinkFileName": "@replace(item().name, '.csv', '')"
+													}
+												}
+											},
+											"compute": {
+												"coreCount": 8,
+												"computeType": "General"
+											},
+											"traceLevel": "Fine"
+										}
 									}
 								]
 							}
@@ -168,7 +236,7 @@
 				}
 			},
 			{
-				"name": "Get Metadata3",
+				"name": "subchild_list_raw_data",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {

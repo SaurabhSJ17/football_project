@@ -1,0 +1,76 @@
+{
+	"name": "csv_source_dflow",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sourceFileName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().sourceFileName",
+					"type": "Expression"
+				},
+				"fileSystem": "raw-layer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "club_id",
+				"type": "String"
+			},
+			{
+				"name": "game_id",
+				"type": "String"
+			},
+			{
+				"name": "own_goals",
+				"type": "String"
+			},
+			{
+				"name": "own_position",
+				"type": "String"
+			},
+			{
+				"name": "own_manager_name",
+				"type": "String"
+			},
+			{
+				"name": "opponent_id",
+				"type": "String"
+			},
+			{
+				"name": "opponent_goals",
+				"type": "String"
+			},
+			{
+				"name": "opponent_position",
+				"type": "String"
+			},
+			{
+				"name": "opponent_manager_name",
+				"type": "String"
+			},
+			{
+				"name": "hosting",
+				"type": "String"
+			},
+			{
+				"name": "is_win",
+				"type": "String"
+			}
+		]
+	}
+}
