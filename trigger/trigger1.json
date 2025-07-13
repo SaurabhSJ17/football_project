@@ -16,9 +16,9 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/football-storage/blobs/",
+			"blobPathBeginsWith": "/raw-layer/blobs/",
 			"ignoreEmptyBlobs": true,
-			"scope": "/subscriptions/a551d430-0caf-4a86-a7c4-e12cc887b2d8/resourceGroups/sj-rg/providers/Microsoft.Storage/storageAccounts/sj5845",
+			"scope": "/subscriptions/5d2d5d96-cf3d-42df-8892-82f2940933ff/resourceGroups/sj/providers/Microsoft.Storage/storageAccounts/sjadlsgen2storage",
 			"events": [
 				"Microsoft.Storage.BlobCreated"
 			]
