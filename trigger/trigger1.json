@@ -1,0 +1,17 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/raw-layer/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/5d2d5d96-cf3d-42df-8892-82f2940933ff/resourceGroups/sj/providers/Microsoft.Storage/storageAccounts/sjadlsgen2storage",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
