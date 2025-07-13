@@ -18,13 +18,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().sourceFileName",
-					"type": "Expression"
-				},
+				"fileName": "players.csv",
 				"fileSystem": "raw-layer"
 			},
-			"sheetIndex": 0,
 			"firstRowAsHeader": true
 		},
 		"schema": []
