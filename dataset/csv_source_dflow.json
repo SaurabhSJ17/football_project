@@ -10,6 +10,9 @@
 				"type": "String"
 			}
 		},
+		"folder": {
+			"name": "csv_dataflow"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
